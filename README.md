@@ -1,5 +1,7 @@
 The minimal blog system that I finished while I was taking the course 15637 Web Application Development.
 
+Please don't copy any part of my code for your ICS lab assignments in CMU. You will get caught.
+
 # Deployment:
 
 The link to the deployed website is http://homework-6.mybluemix.net. May be invalid soon due to expiration of the trial account.
