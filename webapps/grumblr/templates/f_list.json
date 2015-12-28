@@ -1,0 +1,9 @@
+{
+  "followers":[
+    {% for follower in f_list %}
+    {%spaceless%}
+      {{follower.username}}
+    {%endspaceless%}
+    {% endfor %}
+  ],
+}

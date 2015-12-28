@@ -1,0 +1,13 @@
+application:
+  name: homework-6
+  memory: 256M
+  command: bash ./run.sh
+# This is command provided by cf -c option
+  buildpack: https://github.com/cloudfoundry/python-buildpack
+  path: .
+declared-services:
+  postgresql-django:
+    label:postgresql
+    plan:100
+  services:
+    - postgresql-django

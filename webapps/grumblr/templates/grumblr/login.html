@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block css %}
+    {{ block.super }} <link href="/static/grumblr/css/signin.css" rel="stylesheet">
+    {{ block.super }} <link href="/static/grumblr/css/starter-template.css" rel="stylesheet">
+{% endblock %}
+{% block title %}Welcome to grumblr{% endblock %}
+
+
+  {% block content %}
+    <div class="container">
+      <div class="starter-template">
+        <h1>Welcome to grumblr</h1>
+        <p class="lead">This is a welcome page for demo.<br> Please click on any element to navigate this website.</p>
+      </div>
+    </div><!-- /.container -->
+    <div class="container" align="center">
+        {% if form.errors %}
+        <p style="color:red"> Incorrect user name and password.</p>
+        {% endif %}
+    </div>
+    <div class="container">
+      <form class="form-signin" action="{% url 'django.contrib.auth.views.login' %}" method="post">
+        <h2 class="form-signin-heading">Please sign in</h2>
+          <!-- Pending for testing-->
+        <label for="inputEmail" class="sr-only">Username</label>
+        <input type="username" id=username name=username class="form-control" placeholder="Username" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="password" name=password class="form-control" placeholder="Password" required>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+        <input class="btn btn-lg btn-primary col-md-5" type="submit" value="Sign in">
+          <input type="hidden" name="next" value="/grumblr/profile" />
+        <div class="col-md-2"></div>
+        <a href="{% url 'registration' %}" class="btn btn-lg btn-primary col-md-5" >New User?</a>
+        </div>
+        {% csrf_token %}
+      </form>
+
+      {# Assumes you setup the password_reset view in your URLconf #}
+        <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+    </div> <!-- /container -->
+  {% endblock %}
+
+</html>

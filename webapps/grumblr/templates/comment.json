@@ -1,0 +1,5 @@
+{
+  "id":{{comment.id}},
+  "deleted":{{comment.deleted|lower}},
+  "html":"{{comment.html|safe}}"
+}

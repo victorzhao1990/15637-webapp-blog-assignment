@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block css %}
+    {{ block.super }}
+        <link href="/static/grumblr/css/signup.css" rel="stylesheet">
+        <link href="/static/grumblr/css/starter-template.css" rel="stylesheet">
+
+    {% endblock %}
+{% block title %}Welcome to grumblr{% endblock %}
+
+
+    {% block content %}
+
+    <div class="container">
+      <div class="starter-template">
+        <h1>Welcome to grumblr</h1>
+        <p class="lead">This is a welcome page for demo.<br> Please click on any element to navigate this website.</p>
+      </div>
+    </div><!-- /.container -->
+
+    <div class="container" align="center">
+        {% for error in form.non_field_errors %}
+        <p style="color: red">
+        {{ error }}
+        </p>
+        {% endfor %}
+    </div>
+
+    <div class="container">
+      <form class="form-signin" action="{% url 'registration' %}" method="post">
+        <h2 class="form-signin-heading">Join grumblr!</h2>
+        <table>
+{% for field in form.visible_fields %}
+<tr>
+  <td>{{field.label_tag}}</td>
+  <td>{{field}}</td>
+  <td style="color: red">{{field.errors}}</td>
+</tr>
+{% endfor %}
+</table>
+{% for field in form.hidden_fields %}
+{{field}}
+{% endfor %}
+{% csrf_token %}
+        <input type="submit" class="btn btn-lg btn-primary btn-block" value="I finished!">
+
+      </form>
+    </div> <!-- /container -->
+  {% endblock %}
+  </body>
+</html>
